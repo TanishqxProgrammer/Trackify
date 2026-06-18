@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Week1 = () => {
-  const [checked, setChecked] = useState(Array(105).fill(false));
+  const [checked, setChecked] = useState(Array(45).fill(false));
 
   const toggleBox = (index) => {
     const copy = [...checked];
@@ -12,12 +12,12 @@ const Week1 = () => {
   };
 
   return (
-    <div className="border w-50">
-      <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-cyan-300">
+    <div className="border ">
+      <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-red-400">
         <h1 className="font-serif">WEEK</h1>
       </div>
-      <div className="grid grid-cols-7 h-7 border-b bg-cyan-200">
-        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
+      <div className="grid grid-cols-3 h-7 border-b bg-red-300">
+        {["S", "M", "T",].map((day, index) => (
           <div
             key={index}
             className={`
@@ -31,8 +31,8 @@ const Week1 = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-7 h-7 border-b bg-cyan-100">
-        {[1, 2, 3, 4, 5, 6, 7].map((date, index) => (
+      <div className="grid grid-cols-3 h-7 border-b bg-red-200">
+        {[29, 30, 31,].map((date, index) => (
           <div
             key={index}
             className={`
@@ -45,7 +45,7 @@ const Week1 = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-7">
+      <div className="grid grid-cols-3">
         {checked.map((item, index) => (
           <div
             key={index}
@@ -66,7 +66,7 @@ const Week1 = () => {
 
                 items-center
 
-                ${item ? "bg-cyan-300" : "bg-cyan-50"}
+                ${item ? "bg-red-400" : "bg-red-100"}
 
               `}
           >

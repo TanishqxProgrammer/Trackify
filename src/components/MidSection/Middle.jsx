@@ -4,7 +4,9 @@ import Week1 from './Week1'
 import Week2 from './Week2'
 import Week3 from './Week3'
 import Week4 from './Week4'
+import Week5 from './Week5'
 import Goal from './Goal'
+import Progress from './Progress'
 
 const Middle = () => {
   return (
@@ -14,7 +16,9 @@ const Middle = () => {
         <Week2 />
         <Week3 />
         <Week4 />
+        <Week5 />
         <Goal />
+        <Progress />
     </div>
   )
 }

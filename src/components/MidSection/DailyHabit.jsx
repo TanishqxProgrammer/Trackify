@@ -3,7 +3,7 @@ import React from "react";
 const DailyHabit = () => {
   return (
     <div className="border-2 w-75">
-      <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-purple-200">
+      <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-purple-300">
         <h1 className="font-serif">DAILY HABIT</h1>
       </div>
       <div>
