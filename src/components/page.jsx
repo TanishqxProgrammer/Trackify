@@ -1,13 +1,37 @@
-import React from 'react'
-import Header from './TopSection/Header'
-import Middle from './MidSection/Middle'
+import React, { useState } from "react";
+import Header from "./TopSection/Header";
+import Middle from "./MidSection/Middle";
+
 const Page = () => {
+  const [habits, setHabits] = useState(
+    Array(15)
+      .fill()
+      .map(() => ({
+        name: "",
+
+        goal: "",
+
+        checks: Array(31).fill(false),
+      })),
+  );
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  //const currentKey = `${selectedYear}-${selectedMonth}`;
+  const totalDays = new Date(selectedYear, selectedMonth + 1, 0).getDate();
   return (
     <div>
-       <Header />
-       <Middle />
-    </div>
-  )
-}
+      <Header
+        habits={habits}
+        selectedMonth={selectedMonth}
+        setSelectedMonth={setSelectedMonth}
+        selectedYear={selectedYear}
+        setSelectedYear={setSelectedYear}
+      />
 
-export default Page
+      <Middle habits={habits} setHabits={setHabits} totalDays={totalDays} />
+    </div>
+  );
+};
+
+export default Page;

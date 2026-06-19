@@ -1,19 +1,17 @@
 import React from "react";
 
-const Week5 = ({ habits, setHabits }) => {
+const Week5 = ({ habits, setHabits, totalDays }) => {
+  const remainingDays = Math.max(0, totalDays - 28);
   const toggleBox = (row, col) => {
+    const copy = habits.map((habit) => ({
+      ...habit,
+      checks: [...habit.checks],
+    }));
 
-  const copy = habits.map(habit => ({
-    ...habit,
-    checks: [...habit.checks]
-  }));
+    copy[row].checks[col] = !copy[row].checks[col];
 
-  copy[row].checks[col] =
-    !copy[row].checks[col];
-
-  setHabits(copy);
-
-};
+    setHabits(copy);
+  };
 
   return (
     <div className="border w-22">
@@ -23,8 +21,13 @@ const Week5 = ({ habits, setHabits }) => {
 
       {/* Days */}
 
-      <div className="grid grid-cols-3 h-7 border-b bg-red-300">
-        {["S", "M", "T"].map((day, index) => (
+      <div
+        className="grid h-7 border-b bg-red-300"
+        style={{
+          gridTemplateColumns: `repeat(${Math.max(1, remainingDays)}, 1fr)`,
+        }}
+      >
+        {["S", "M", "T"].slice(0, remainingDays).map((day, index) => (
           <div
             key={index}
             className={`
@@ -52,21 +55,25 @@ const Week5 = ({ habits, setHabits }) => {
 
       {/* Dates */}
 
-      <div className="grid grid-cols-3 h-7 border-b bg-red-200">
-        {[29, 30, 31].map((date, index) => (
+      <div
+        className="grid h-7 border-b bg-red-300"
+        style={{
+          gridTemplateColumns: `repeat(${Math.max(1, remainingDays)}, 1fr)`,
+        }}
+      >
+        {Array.from(
+          { length: remainingDays },
+
+          (_, index) => 29 + index,
+        ).map((date, index) => (
           <div
             key={index}
             className={`
-
-              flex
-
-              justify-center
-
-              items-center
-
-              ${index !== 2 ? "border-r border-gray-400" : ""}
-
-              `}
+      flex
+      justify-center
+      items-center
+      ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""}
+    `}
           >
             {date}
           </div>
@@ -77,10 +84,16 @@ const Week5 = ({ habits, setHabits }) => {
 
       <div>
         {habits.map((habit, row) => (
-          <div key={row} className="grid grid-cols-3">
+          <div
+            key={row}
+            className="grid"
+            style={{
+              gridTemplateColumns: `repeat(${Math.max(1, remainingDays)}, 1fr)`,
+            }}
+          >
             {habit.checks
 
-              .slice(28, 31)
+              .slice(28, 28 + remainingDays)
 
               .map((item, col) => (
                 <div
