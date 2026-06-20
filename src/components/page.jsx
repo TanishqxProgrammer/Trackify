@@ -1,26 +1,29 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 import Header from "./TopSection/Header";
 import Middle from "./MidSection/Middle";
 
 const Page = () => {
   const [habits, setHabits] = useState(
     Array(15)
-      .fill()
-      .map(() => ({
-        name: "",
-
-        goal: "",
-
-        checks: Array(31).fill(false),
-      })),
+    .fill()
+    .map(() => ({
+      name: "",
+      
+      goal: "",
+      
+      checks: Array(31).fill(false),
+    })),
   );
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
-
+  
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   //const currentKey = `${selectedYear}-${selectedMonth}`;
   const totalDays = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+  const [dark, setDark] = useState(false);
   return (
     <div>
+      <Navbar dark={dark} setDark={setDark} habits={habits} />
       <Header
         habits={habits}
         selectedMonth={selectedMonth}

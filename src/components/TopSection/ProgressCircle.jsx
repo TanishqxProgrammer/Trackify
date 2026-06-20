@@ -27,7 +27,7 @@ export default function ProgressCircle({ habits }) {
   ];
 
   return (
-    <div className="w-50 h-31 ml-2 border-2 relative">
+    <div className="w-[180px] h-[125px] border-2  ml-1 relative mx-auto">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
