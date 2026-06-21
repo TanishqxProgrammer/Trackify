@@ -52,22 +52,17 @@ const Week5circle = () => {
 
       {/* Bottom Boxes */}
       <div className="flex flex-col mt-[15px]">
-
-  {[1, 2].map((row) => (
-    <div key={row} className="flex ">
-
-      {[1, 2, 3, 4, 5, 6, 7].map((box) => (
-        <div
-          key={box}
-          className="h-8 w-7 border-r border-t flex items-center justify-center"
-        >
-        </div>
-      ))}
-
-    </div>
-  ))}
-
-</div>
+        {[1, 2].map((row) => (
+          <div key={row} className="flex ">
+            {[1, 2, 3, 4, 5, 6, 7].map((box) => (
+              <div
+                key={box}
+                className="h-8 w-7 border-r border-t flex items-center justify-center"
+              ></div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
