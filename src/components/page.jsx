@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Header from "./TopSection/Header";
 import Middle from "./MidSection/Middle";
+import Footer from "./BottomSection/Footer";
 
 const Page = () => {
   const [habits, setHabits] = useState(
@@ -33,6 +34,7 @@ const Page = () => {
       />
 
       <Middle habits={habits} setHabits={setHabits} totalDays={totalDays} />
+      <Footer />
     </div>
   );
 };
