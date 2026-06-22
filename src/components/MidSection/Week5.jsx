@@ -1,6 +1,6 @@
 import React from "react";
 
-const Week5 = ({ habits, setHabits, totalDays }) => {
+const Week5 = ({ habits, setHabits, totalDays, calendarData }) => {
   const remainingDays = Math.max(0, totalDays - 28);
   const toggleBox = (row, col) => {
     const copy = habits.map((habit) => ({
@@ -27,55 +27,53 @@ const Week5 = ({ habits, setHabits, totalDays }) => {
           gridTemplateColumns: `repeat(${Math.max(1, remainingDays)}, 1fr)`,
         }}
       >
-        {["S", "M", "T"].slice(0, remainingDays).map((day, index) => (
+        {calendarData.slice(28).map((item, index) => (
           <div
             key={index}
             className={`
 
-              flex
+        flex
 
-              justify-center
+        justify-center
 
-              items-center
+        items-center
 
-              font-bold
+        font-bold
 
-              font-serif
+        font-serif
 
-              text-sm
+        text-sm
 
-              ${index !== 2 ? "border-r border-gray-400" : ""}
+        ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""}
 
-              `}
+        `}
           >
-            {day}
+            {item.day[0]}
           </div>
         ))}
       </div>
 
       {/* Dates */}
-
+      
       <div
         className="grid h-7 border-b bg-red-300"
         style={{
           gridTemplateColumns: `repeat(${Math.max(1, remainingDays)}, 1fr)`,
         }}
       >
-        {Array.from(
-          { length: remainingDays },
-
-          (_, index) => 29 + index,
-        ).map((date, index) => (
+        {calendarData.slice(28).map((item, index) => (
           <div
             key={index}
             className={`
-      flex
-      justify-center
-      items-center
-      ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""}
-    `}
+        flex
+        justify-center
+        items-center
+
+        ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""}
+
+        `}
           >
-            {date}
+            {item.date}
           </div>
         ))}
       </div>

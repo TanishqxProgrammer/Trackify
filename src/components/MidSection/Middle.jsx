@@ -8,25 +8,21 @@ import Week5 from "./Week5";
 import Goal from "./Goal";
 import Progress from "./Progress";
 
-const Middle = ({ habits, setHabits, totalDays }) => {
+const Middle = ({ habits, setHabits, totalDays, calendarData}) => {
   return (
     <div className="h-136 w-full p-2 border-2 flex">
 
       <DailyHabit habits={habits} setHabits={setHabits} />
 
-      <Week1 habits={habits} setHabits={setHabits} />
+      <Week1 habits={habits} setHabits={setHabits} calendarData={calendarData}/>
 
-      <Week2 habits={habits} setHabits={setHabits} />
+      <Week2 habits={habits} setHabits={setHabits} calendarData={calendarData}/>
 
-      <Week3 habits={habits} setHabits={setHabits} />
+      <Week3 habits={habits} setHabits={setHabits} calendarData={calendarData}/>
 
-      <Week4 habits={habits} setHabits={setHabits} />
+      <Week4 habits={habits} setHabits={setHabits} calendarData={calendarData}/>
 
-      <Week5
-        habits={habits}
-        setHabits={setHabits}
-        totalDays={totalDays}
-      />
+      <Week5 habits={habits} setHabits={setHabits} totalDays={totalDays} calendarData={calendarData}/>
 
       <Goal habits={habits} setHabits={setHabits} />
 

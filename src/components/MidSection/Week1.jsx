@@ -1,52 +1,54 @@
 import React from "react";
 
-const Week1 = ({ habits, setHabits }) => {
+const Week1 = ({ habits, setHabits, calendarData }) => {
+  const toggleBox = (row, col) => {
+    const copy = habits.map((habit) => ({
+      ...habit,
+      checks: [...habit.checks],
+    }));
 
-const toggleBox = (row, col) => {
+    copy[row].checks[col] = !copy[row].checks[col];
 
-  const copy = habits.map(habit => ({
-    ...habit,
-    checks: [...habit.checks]
-  }));
-
-  copy[row].checks[col] =
-    !copy[row].checks[col];
-
-  setHabits(copy);
-
-};
+    setHabits(copy);
+  };
   return (
     <div className="border w-50">
       <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-cyan-300">
         <h1 className="font-serif">WEEK</h1>
       </div>
       <div className="grid grid-cols-7 h-7 border-b bg-cyan-200">
-        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
-          <div
-            key={index}
-            className={`
+        {calendarData
+          .slice(0, 7)
+          .map((item, index) => <div key={index}>{item.day[0]}</div>)
+          .map((day, index) => (
+            <div
+              key={index}
+              className={`
         flex justify-center items-center
         font-bold font-serif text-sm
         ${index !== 6 ? "border-r border-gray-400" : ""}
       `}
-          >
-            {day}
-          </div>
-        ))}
+            >
+              {day}
+            </div>
+          ))}
       </div>
 
       <div className="grid grid-cols-7 h-7 border-b bg-cyan-100">
-        {[1, 2, 3, 4, 5, 6, 7].map((date, index) => (
-          <div
-            key={index}
-            className={`
+        {calendarData
+          .slice(0, 7)
+          .map((item, index) => <div key={index}>{item.date}</div>)
+          .map((date, index) => (
+            <div
+              key={index}
+              className={`
         flex justify-center items-center
         ${index !== 6 ? "border-r border-gray-400" : ""}
       `}
-          >
-            {date}
-          </div>
-        ))}
+            >
+              {date}
+            </div>
+          ))}
       </div>
 
       <div>

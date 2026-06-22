@@ -1,19 +1,16 @@
 import React from "react";
 
-const Week4 = ({ habits, setHabits }) => {
-const toggleBox = (row, col) => {
+const Week4 = ({ habits, setHabits, calendarData }) => {
+  const toggleBox = (row, col) => {
+    const copy = habits.map((habit) => ({
+      ...habit,
+      checks: [...habit.checks],
+    }));
 
-  const copy = habits.map(habit => ({
-    ...habit,
-    checks: [...habit.checks]
-  }));
+    copy[row].checks[col] = !copy[row].checks[col];
 
-  copy[row].checks[col] =
-    !copy[row].checks[col];
-
-  setHabits(copy);
-
-};
+    setHabits(copy);
+  };
 
   return (
     <div className="border w-50">
@@ -21,7 +18,7 @@ const toggleBox = (row, col) => {
         <h1 className="font-serif">WEEK</h1>
       </div>
       <div className="grid grid-cols-7 h-7 border-b bg-yellow-200">
-        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
+        {calendarData.slice(21, 28).map((item, index) => (
           <div
             key={index}
             className={`
@@ -30,13 +27,13 @@ const toggleBox = (row, col) => {
         ${index !== 6 ? "border-r border-gray-400" : ""}
       `}
           >
-            {day}
+            {item.day[0]}
           </div>
         ))}
       </div>
 
       <div className="grid grid-cols-7 h-7 border-b bg-yellow-100">
-        {[22, 23, 24, 25, 26, 27, 28].map((date, index) => (
+        {calendarData.slice(21, 28).map((item, index) => (
           <div
             key={index}
             className={`
@@ -44,7 +41,7 @@ const toggleBox = (row, col) => {
         ${index !== 6 ? "border-r border-gray-400" : ""}
       `}
           >
-            {date}
+            {item.date}
           </div>
         ))}
       </div>

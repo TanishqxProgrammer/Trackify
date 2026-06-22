@@ -45,7 +45,7 @@ const Week2circle = ({ percentage, completedPerDay, incompletePerDay }) => {
         </div>
       </div>
 
-      {/* Bottom Boxes */}
+      {/* Bottom Boxes */} 
       {/* Bottom Boxes */}
       <div className="flex flex-col mt-[15px]">
         <div className="flex">

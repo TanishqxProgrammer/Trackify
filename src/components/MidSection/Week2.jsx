@@ -1,53 +1,57 @@
 import React from "react";
 
-const Week2 = ({ habits, setHabits }) => {
-const toggleBox = (row, col) => {
+const Week2 = ({ habits, setHabits, calendarData }) => {
+  const toggleBox = (row, col) => {
+    const copy = habits.map((habit) => ({
+      ...habit,
+      checks: [...habit.checks],
+    }));
 
-  const copy = habits.map(habit => ({
-    ...habit,
-    checks: [...habit.checks]
-  }));
+    copy[row].checks[col] = !copy[row].checks[col];
 
-  copy[row].checks[col] =
-    !copy[row].checks[col];
-
-  setHabits(copy);
-
-};
+    setHabits(copy);
+  };
 
   return (
     <div className="border w-50">
       <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-green-300">
         <h1 className="font-serif">WEEK</h1>
       </div>
+
+      {/* Days */}
+
       <div className="grid grid-cols-7 h-7 border-b bg-green-200">
-        {["S", "M", "T", "W", "T", "F", "S"].map((day, index) => (
+        {calendarData.slice(7, 14).map((item, index) => (
           <div
             key={index}
             className={`
-        flex justify-center items-center
-        font-bold font-serif text-sm
-        ${index !== 6 ? "border-r border-gray-400" : ""}
-      `}
+              flex justify-center items-center
+              font-bold font-serif text-sm
+              ${index !== 6 ? "border-r border-gray-400" : ""}
+            `}
           >
-            {day}
+            {item.day[0]}
           </div>
         ))}
       </div>
 
+      {/* Dates */}
+
       <div className="grid grid-cols-7 h-7 border-b bg-green-100">
-        {[8, 9, 10, 11, 12, 13, 14].map((date, index) => (
+        {calendarData.slice(7, 14).map((item, index) => (
           <div
             key={index}
             className={`
-        flex justify-center items-center
-        ${index !== 6 ? "border-r border-gray-400" : ""}
-      `}
+              flex justify-center items-center
+              ${index !== 6 ? "border-r border-gray-400" : ""}
+            `}
           >
-            {date}
+            {item.date}
           </div>
         ))}
       </div>
+
+      {/* Checkboxes */}
 
       <div>
         {habits.map((habit, row) => (
@@ -68,23 +72,23 @@ const toggleBox = (row, col) => {
                   }
                   className={`
 
-h-7
+                  h-7
 
-border
+                  border
 
-border-gray-400
+                  border-gray-400
 
-cursor-pointer
+                  cursor-pointer
 
-flex
+                  flex
 
-justify-center
+                  justify-center
 
-items-center
+                  items-center
 
-${item ? "bg-green-300" : "bg-green-50"}
+                  ${item ? "bg-green-300" : "bg-green-50"}
 
-`}
+                  `}
                 >
                   {item ? "✓" : ""}
                 </div>
