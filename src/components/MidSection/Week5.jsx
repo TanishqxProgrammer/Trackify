@@ -35,25 +35,7 @@ const Week5 = ({
       >
         {calendarData.slice(28).map((item, index) => (
           <div
-            key={index}
-            className={`
-
-        flex
-
-        justify-center
-
-        items-center
-
-        font-bold
-
-        font-serif
-
-        text-sm
-
-        ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""}
-
-        `}
-          >
+            key={index} className={` flex justify-center items-center font-bold font-serif text-sm ${index !== remainingDays - 1 ? "border-r border-gray-400" : ""} `}>
             {item.day[0]}
           </div>
         ))}

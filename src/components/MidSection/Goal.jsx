@@ -17,9 +17,9 @@ const Goal = ({ habits, setHabits }) => {
       <div className="w-full h-26 border-b flex justify-center items-center">
         <p className="whitespace-pre-line font-bold font-serif text-center">
           {`G
-O
-A
-L`}
+            O
+            A
+            L`}
         </p>
       </div>
 
@@ -31,12 +31,7 @@ L`}
             min="0"
             value={habit.goal}
             onChange={(e) =>
-              handleGoalChange(
-                index,
-
-                e.target.value,
-              )
-            }
+              handleGoalChange(index, e.target.value,) }
             className="h-7 w-full border-b text-center outline-none"
           />
         ))}

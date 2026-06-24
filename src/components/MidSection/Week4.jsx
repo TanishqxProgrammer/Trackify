@@ -75,7 +75,7 @@ const Week4 = ({ habits, setHabits, calendarData, setHighlightRow }) => {
                                     ? "bg-gray-100"
                                     : "bg-yell -50"
                               }
-                            `}
+                              `}
                 >
                   {item ? "✓" : ""}
                 </div>
