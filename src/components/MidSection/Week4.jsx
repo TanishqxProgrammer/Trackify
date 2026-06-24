@@ -73,7 +73,7 @@ const Week4 = ({ habits, setHabits, calendarData, setHighlightRow }) => {
                                   ? "bg-yellow-300"
                                   : habit.name.trim() === ""
                                     ? "bg-gray-100"
-                                    : "bg-yell -50"
+                                    : "bg-yellow-50"
                               }
                               `}
                 >

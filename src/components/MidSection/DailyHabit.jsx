@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-const DailyHabit = ({ habits, setHabits, highlightRow }) => {
+const DailyHabit = ({
+  habits,
+  setHabits,
+  highlightRow,
+  totalDays,
+  dragIndex,
+  setDragIndex,
+  moveHabit,
+}) => {
+  const [dropIndex, setDropIndex] = useState(null);
+
   const handleHabitChange = (index, value) => {
     const copy = habits.map((habit) => ({
       ...habit,
@@ -9,8 +20,8 @@ const DailyHabit = ({ habits, setHabits, highlightRow }) => {
 
     copy[index].name = value;
 
-    // Agar habit name empty ho jaye
     if (value.trim() === "") {
+      copy[index].goal = "";
       copy[index].checks = Array(copy[index].checks.length).fill(false);
     }
 
@@ -19,34 +30,51 @@ const DailyHabit = ({ habits, setHabits, highlightRow }) => {
 
   return (
     <div className="border-2 w-75">
-      <div className="h-12 border-b flex justify-center p-2.5 font-bold text-center bg-purple-300">
-        <h1 className="font-serif">DAILY HABIT</h1>
+      {/* HEADER */}
+      <div className="h-19 flex justify-center items-center font-bold bg-purple-300 border-b">
+        DAILY HABIT
       </div>
-      <div>
-        <h1 className="border-b h-7 w-full flex justify-center font-bold font-serif bg-purple-100">
-          Days
-        </h1>
+
+      {/* DAYS */}
+      <div className="flex justify-center items-center bg-purple-100 h-7 border-b">
+        <p>
+          {totalDays}/{totalDays}
+        </p>
       </div>
-      <div className="flex justify-center items-center border-b bg-purple-100 h-7 w-full">
-        <p>31/31</p>
-      </div>
+
+      {/* LIST */}
       <div>
         {habits.map((habit, index) => (
-          <input
+          <motion.div
             key={index}
-            type="text"
-            value={habit.name}
-            onChange={(e) =>
-              handleHabitChange(
-                index,
-
-                e.target.value,
-              )
-            }
-            className={`  h-7  border-b  w-full  transition-all
-  ${highlightRow === index ? "border-2 border-red-500 bg-red-50" : ""}`}
-            placeholder="Enter Habit"
-          />
+            layout
+            draggable
+            onDragStart={() => setDragIndex(index)}
+            onDragEnd={() => setDragIndex(null)}
+            onDragOver={(e) => {
+              e.preventDefault();
+              setDropIndex(index);
+            }}
+            onDragLeave={() => setDropIndex(null)}
+            onDrop={() => {
+              moveHabit(dragIndex, index);
+              setDropIndex(null);
+            }}
+            className={`h-7 flex items-center transition-all
+              ${highlightRow === index ? "bg-red-50 border border-red-400" : ""}
+              ${dragIndex === index ? "opacity-40 scale-[0.98]" : ""}
+              ${dropIndex === index ? "bg-green-100" : ""}
+              border-b
+            `}
+          >
+            <input
+              type="text"
+              value={habit.name}
+              onChange={(e) => handleHabitChange(index, e.target.value)}
+              placeholder="Enter Habit"
+              className="w-full h-full text-center outline-none bg-transparent"
+            />
+          </motion.div>
         ))}
       </div>
     </div>

@@ -44,7 +44,9 @@ const Progress = ({ habits }) => {
 
             <div className="w-full h-4 bg-gray-100 overflow-hidden">
               <div
-                className="h-full bg-purple-200"
+                className={`h-full transition-all duration-300 ${
+                  completed >= total ? "bg-green-300" : "bg-purple-300"
+                }`}
                 style={{
                   width: `${Math.min(percentage, 100)}%`,
                 }}

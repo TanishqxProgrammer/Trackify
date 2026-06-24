@@ -27,10 +27,9 @@ const Navbar = ({ dark, setDark, habits = [] }) => {
       {/* Right */}
 
       <div className="flex items-center gap-5">
-        <button onClick={() => setDark(!dark)}>
+        <button onClick={() => setDark(!dark)} className="cursor-pointer hover:scale-105 transition">
           <div
-            className=" w-10  rounded-full flex items-center justify-cent hover:bg-gray-100 dark:hover:bg-zinc-8 transition duration-200
-    "
+            className=" w-10  rounded-full flex items-center justify-center hover:bg-gray-100 dark:hover:bg-zinc-800 transition duration-200"
           >
             {dark ? <Sun size={22} /> : <Moon size={22} />}
           </div>
@@ -40,7 +39,7 @@ const Navbar = ({ dark, setDark, habits = [] }) => {
           <h2 className="font-semibold">Tanishq</h2>
 
           <p className="text-sm mb-1 text-gray-500 dark:text-gray-400">
-            {totalHabits} / {habits.length} Habits
+            {totalHabits} / {MAX_HABITS} Habits
           </p>
         </div>
 
@@ -60,7 +59,7 @@ const Navbar = ({ dark, setDark, habits = [] }) => {
           font-bold
           "
         >
-          T
+          {(habits?.[0]?.name?.[0] || "T").toUpperCase()}
         </div>
       </div>
     </nav>
