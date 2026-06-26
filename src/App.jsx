@@ -1,11 +1,20 @@
-import React from 'react'
-import Page from './components/page.jsx'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Page from "./pages/Page";
+
 const App = () => {
   return (
-    <div>
-      <Page />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
 
-export default App
+        <Route path="/" element={<Login />} />
+
+        <Route path="/tracker" element={<Page />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;

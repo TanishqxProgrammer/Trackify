@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Header from "./TopSection/Header";
-import Middle from "./MidSection/Middle";
-import Footer from "./BottomSection/Footer";
+import Navbar from "../components/Navbar";
+import Header from "../components/TopSection/Header";
+import Middle from "../components/MidSection/Middle";
+import Footer from "../components/BottomSection/Footer";
 
 const createEmptyHabits = () => {
   return Array(15)
