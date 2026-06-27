@@ -19,7 +19,7 @@ const createEmptyHabits = () => {
 const Page = () => {
   const navigate = useNavigate();
 
-  // 🔐 AUTH CHECK
+  //  AUTH CHECK
   useEffect(() => {
     const user = localStorage.getItem("loggedIn");
     if (!user) {
@@ -27,10 +27,10 @@ const Page = () => {
     }
   }, [navigate]);
 
-  // 📦 HABITS STATE
+  //  HABITS STATE
   const [allHabits, setAllHabits] = useState({});
 
-  // 📅 DATE STATE
+  //  DATE STATE
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
@@ -44,7 +44,7 @@ const Page = () => {
     }));
   };
 
-  // 📆 DAYS
+  //  DAYS
   const totalDays = new Date(selectedYear, selectedMonth + 1, 0).getDate();
   const calendarData = [];
 
