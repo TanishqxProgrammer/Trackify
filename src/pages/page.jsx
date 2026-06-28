@@ -76,14 +76,15 @@ const Page = () => {
       />
 
       {/* MAIN */}
-      <Middle
-        habits={habits}
-        setHabits={setHabits}
-        totalDays={totalDays}
-        calendarData={calendarData}
-      />
+      <div className="overflow-x-auto">
+        <Middle
+          habits={habits}
+          setHabits={setHabits}
+          totalDays={totalDays}
+          calendarData={calendarData}
+        />
+      </div>
 
-      {/* FOOTER */}
       <Footer habits={habits} totalDays={totalDays} />
     </div>
   );

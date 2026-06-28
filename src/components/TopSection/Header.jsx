@@ -4,7 +4,13 @@ import Month from "./Month";
 import ProgressCircle from "./ProgressCircle";
 import DailyProgress from "./DailyProgress";
 
-const Header = ({ habits, totalDays, selectedMonth, setSelectedMonth, selectedYear, setSelectedYear,
+const Header = ({
+  habits,
+  totalDays,
+  selectedMonth,
+  setSelectedMonth,
+  selectedYear,
+  setSelectedYear,
 }) => {
   return (
     <div className="p-2 flex gap-3 border">
@@ -23,9 +29,10 @@ const Header = ({ habits, totalDays, selectedMonth, setSelectedMonth, selectedYe
       </div>
 
       <div className="w-50px">
-        <ProgressCircle habits={habits} totalDays={totalDays}/>
+        <ProgressCircle habits={habits} totalDays={totalDays} />
       </div>
     </div>
   );
 };
+
 export default Header;

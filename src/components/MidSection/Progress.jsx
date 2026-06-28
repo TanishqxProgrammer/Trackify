@@ -14,7 +14,7 @@ const Progress = ({ habits }) => {
   );
 
   return (
-    <div className="border-2 w-75">
+    <div className="border-2 w-70">
       <div className="h-12 border-b flex justify-center items-center font-bold bg-purple-300">
         <h1 className="font-serif">PROGRESS</h1>
       </div>

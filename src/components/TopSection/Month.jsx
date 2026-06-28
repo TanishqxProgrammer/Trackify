@@ -22,7 +22,7 @@ const Month = ({
   setSelectedYear,
 }) => {
   return (
-    <div className="w-70 h-17  border-2">
+    <div className="w-70 h-17 border-2">
       {/* Headings */}
       <div className="grid grid-cols-2 border-b border-gray-500">
         <div className="text-center font-bold py-1 border-r border-gray-500">
