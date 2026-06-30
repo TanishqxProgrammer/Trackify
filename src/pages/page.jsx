@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Header from "../components/TopSection/Header";
 import Middle from "../components/MidSection/Middle";
 import Footer from "../components/BottomSection/Footer";
+import FooterInfo from "../components/BottomSection/FooterInfo";
 
 const createEmptyHabits = () => {
   return Array(15)
@@ -28,7 +29,15 @@ const Page = () => {
   }, [navigate]);
 
   // HABITS STATE
-  const [allHabits, setAllHabits] = useState({});
+  const [allHabits, setAllHabits] = useState(() => {
+    const savedHabits = localStorage.getItem("allHabits");
+
+    return savedHabits ? JSON.parse(savedHabits) : {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem("allHabits", JSON.stringify(allHabits));
+  }, [allHabits]);
 
   // DATE STATE
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
@@ -61,7 +70,6 @@ const Page = () => {
 
   return (
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
-      
       {/* Navbar */}
 
       <Navbar
@@ -97,6 +105,13 @@ const Page = () => {
       {/* Footer */}
 
       <Footer habits={habits} totalDays={totalDays} />
+
+      <FooterInfo
+        habits={habits}
+        totalDays={totalDays}
+        selectedMonth={selectedMonth}
+        selectedYear={selectedYear}
+      />
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Week = ({
 
   return (
     <div
-      className={`border flex-shrink-0 ${totalColumns === 7 ? "w-50" : "w-22"}`}
+      className={`border border-b-2 flex-shrink-0 ${totalColumns === 7 ? "w-50" : "w-22"}`}
     >
       {/* Header */}
 

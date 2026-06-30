@@ -75,7 +75,7 @@ const Middle = ({ habits, setHabits, totalDays, calendarData }) => {
   ];
 
   return (
-    <motion.div layout className="w-full border-2 p-2">
+    <motion.div layout className="w-full border-b-2 p-2">
       <div
         className="
           flex
