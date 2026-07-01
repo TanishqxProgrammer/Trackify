@@ -25,7 +25,7 @@ export default function DailyProgress({ habits }) {
     <div className="w-full h-32 border-2 p-2">
       <h3 className="text-center text-xs text-gray-600 mb-1">DAILY PROGRESS</h3>
 
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height={90}>
         <AreaChart data={data}>
           <Area
             type="monotone"

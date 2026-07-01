@@ -1,16 +1,93 @@
-# React + Vite
+# 🚀 Trackify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Build Better Habits, One Day at a Time.**
 
-Currently, two official plugins are available:
+Trackify is a modern and responsive habit tracking web application built with **React**. It helps users stay consistent by tracking daily habits, setting goals, monitoring weekly progress, taking notes, and exporting the dashboard as a PDF.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* ✅ Track daily habits
+* 📅 Monthly calendar view
+* 🎯 Goal management
+* 📈 Weekly progress analytics
+* 📊 Interactive charts
+* 📝 Notes section
+* 🔄 Drag & drop habit reordering
+* 📄 Export dashboard as PDF
+* 📱 Fully responsive design
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+* **React.js**
+* **Vite**
+* **Tailwind CSS**
+* **Framer Motion**
+* **Recharts**
+* **jsPDF**
+* **html2canvas**
+
+---
+
+## 📸 Screenshots
+
+> *Screenshots will be added soon.*
+
+---
+
+## 📂 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/TanishqxProgrammer/Habit-tracker.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd Habit-tracker
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+---
+
+## 🎯 Future Improvements
+
+* 🔥 Streak Tracking
+* 🏆 Achievement Badges
+* ☁️ Firebase Authentication
+* 🔄 Cloud Data Sync
+* 📊 Advanced Analytics
+* 🔔 Toast Notifications
+* ⚡ Performance Optimization
+
+---
+
+## 👨‍💻 Author
+
+**Tanishq Mishra**
+
+If you like this project, don't forget to ⭐ the repository!

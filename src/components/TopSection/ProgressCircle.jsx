@@ -29,7 +29,7 @@ export default function ProgressCircle({ habits, totalDays }) {
 
   return (
     <div className="w-[180px] h-[125px] border-2  ml-1 relative mx-auto">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height={125}>
         <PieChart>
           <Pie
             data={data}
