@@ -75,16 +75,8 @@ const Middle = ({ habits, setHabits, totalDays, calendarData }) => {
   ];
 
   return (
-    <motion.div layout className="w-full border-b-2 p-2">
-      <div
-        className="
-          flex
-          w-max
-          md:w-full
-          overflow-x-auto
-          md:overflow-x-hidden
-        "
-      >
+    <motion.div layout className="w-full border-b-2 p-2 overflow-x-auto md:overflow-x-hidden">
+  <div className="flex w-max md:min-w-full">
         <DailyHabit
           habits={habits}
           setHabits={setHabits}

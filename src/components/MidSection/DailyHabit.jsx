@@ -29,7 +29,15 @@ const DailyHabit = ({
   };
 
   return (
-    <div className="border-2 flex-shrink-0 w-[300px]">
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+      }}
+      className="border-2 flex-shrink-0 w-[300px]"
+    >
       {/* HEADER */}
       <div className="h-[76px] flex justify-center items-center font-bold bg-purple-300 border-b">
         DAILY HABIT
@@ -48,6 +56,12 @@ const DailyHabit = ({
           <motion.div
             key={index}
             layout
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: index * 0.04,
+              duration: 0.25,
+            }}
             draggable
             onDragStart={() => setDragIndex(index)}
             onDragEnd={() => setDragIndex(null)}
@@ -60,7 +74,7 @@ const DailyHabit = ({
               moveHabit(dragIndex, index);
               setDropIndex(null);
             }}
-            className={`h-7 flex items-center transition-all
+            className={`h-7 flex items-center transition-all duration-200 hover:bg-purple-50
               ${highlightRow === index ? "bg-red-50 border border-red-400" : ""}
               ${dragIndex === index ? "opacity-40 scale-[0.98]" : ""}
               ${dropIndex === index ? "bg-green-100" : ""}
@@ -77,7 +91,7 @@ const DailyHabit = ({
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
